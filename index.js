@@ -5,20 +5,24 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/api/nylas-webhooks', (req, res) => {
+const router = express.Router();
+
+router.get('/api/nylas-webhooks', (req, res) => {
     console.log('query >>>>>>', req.query);
 
     return res.send(req.query.challenge);
 });
 
-app.post('/api/nylas-webhooks', (req, res) => {
+router.post('/api/nylas-webhooks', (req, res) => {
     console.log('body >>>>>>>', req.body);
 
     return res.status(200).end();
 });
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send('App success');
 });
+
+app.use('/', router);
 
 app.listen(3001, () => console.log('app started'));
