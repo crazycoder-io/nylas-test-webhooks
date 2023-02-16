@@ -17,4 +17,4 @@ app.post('/api/nylas-webhooks', (req, res) => {
     return res.status(200).end();
 });
 
-app.listen(3001, () => {});
+app.listen(3001, () => console.log('app started'));
