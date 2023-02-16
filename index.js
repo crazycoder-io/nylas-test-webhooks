@@ -14,7 +14,8 @@ router.get('/api/nylas-webhooks', (req, res) => {
 });
 
 router.post('/api/nylas-webhooks', (req, res) => {
-    console.log('body >>>>>>>', req.body);
+
+    req.body.deltas.map(deltas => console.log('deltas >>>', JSON.stringify(deltas)));
 
     return res.status(200).end();
 });
