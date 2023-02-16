@@ -25,4 +25,4 @@ router.get('/', (req, res) => {
 
 app.use('/', router);
 
-app.listen(3001, () => console.log('app started'));
+app.listen(process.env.PORT || 3001, '0.0.0.0', () => console.log('app started'));
